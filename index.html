@@ -1,7 +1,352 @@
-<!-- Contact Section -->
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
-    <p>Phone: <a href="tel:4049932750">404-993-2750</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bridgit Lawhead — Marketing Project Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blush:#f7e8ed;--blush-mid:#e8c4cf;--blush-dark:#c4869a;--blush-deep:#9c5a6e;
+      --sand:#f8f5f0;--sand-mid:#ede8e0;--charcoal:#2c2825;--charcoal-mid:#5a5450;
+      --charcoal-light:#8a8480;--white:#ffffff;
+      --serif:'Cormorant Garamond',serif;--sans:'DM Sans',sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--sand);color:var(--charcoal);font-size:16px;line-height:1.7;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,245,240,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--sand-mid);padding:0 2.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{font-family:var(--serif);font-size:1.25rem;color:var(--charcoal);text-decoration:none;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-mid);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--blush-deep);}
+    .hero{min-height:100vh;display:flex;align-items:center;padding:100px 2.5rem 60px;max-width:1100px;margin:0 auto;}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%;}
+    .hero-eyebrow{font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--blush-deep);font-weight:500;margin-bottom:1.25rem;}
+    .hero-name{font-family:var(--serif);font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.05;margin-bottom:1.5rem;}
+    .hero-name em{font-style:italic;color:var(--blush-deep);}
+    .hero-tagline{font-size:1rem;color:var(--charcoal-mid);font-weight:300;max-width:400px;line-height:1.8;margin-bottom:2.5rem;}
+    .btn-solid{display:inline-block;padding:0.75rem 1.75rem;background:var(--charcoal);color:var(--white);text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:background 0.2s;}
+    .btn-solid:hover{background:var(--blush-deep);}
+    .btn-ghost{display:inline-block;padding:0.75rem 1.75rem;border:1px solid var(--charcoal-light);color:var(--charcoal-mid);text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;margin-left:1rem;transition:all 0.2s;}
+    .btn-ghost:hover{border-color:var(--blush-deep);color:var(--blush-deep);}
+    .hero-card{background:var(--white);border:1px solid var(--sand-mid);padding:2.5rem;width:100%;max-width:360px;}
+    .hero-card-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--charcoal-light);margin-bottom:1.5rem;}
+    .stat-row{display:flex;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--sand-mid);}
+    .stat-row:last-child{border:none;margin:0;padding:0;}
+    .stat-block{flex:1;text-align:center;}
+    .stat-num{font-family:var(--serif);font-size:2.5rem;font-weight:300;color:var(--blush-deep);line-height:1;}
+    .stat-label{font-size:0.75rem;color:var(--charcoal-light);margin-top:0.25rem;}
+    section{padding:6rem 2.5rem;}
+    .container{max-width:1100px;margin:0 auto;}
+    .sec-label{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--blush-deep);font-weight:500;margin-bottom:0.75rem;}
+    .sec-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.15;margin-bottom:1rem;}
+    .sec-title em{font-style:italic;color:var(--blush-deep);}
+    .sec-intro{font-size:1rem;color:var(--charcoal-mid);font-weight:300;max-width:560px;line-height:1.8;margin-bottom:3.5rem;}
+    #expertise{background:var(--white);}
+    .expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+    .exp-card{background:var(--sand);padding:2rem;border-left:3px solid transparent;transition:all 0.2s;}
+    .exp-card:hover{border-left-color:var(--blush-deep);background:var(--blush);}
+    .exp-icon{font-size:1.5rem;margin-bottom:1rem;}
+    .exp-name{font-family:var(--serif);font-size:1.2rem;margin-bottom:0.5rem;}
+    .exp-desc{font-size:0.85rem;color:var(--charcoal-light);line-height:1.7;}
+    #work{background:var(--sand);}
+    .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
+    .work-card{background:var(--white);border:1px solid var(--sand-mid);overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+    .work-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(44,40,37,0.08);}
+    .work-img{height:220px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;}
+    .work-img a{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--blush-deep);text-decoration:none;border-bottom:1px solid var(--blush-dark);}
+    .work-img a:hover{color:var(--blush-deep);opacity:0.7;}
+    .bg-b{background:var(--blush);}
+    .bg-s{background:var(--sand-mid);}
+    .bg-m{background:var(--blush-mid);}
+    .bg-d{background:#ede0e5;}
+    .work-body{padding:1.75rem;}
+    .work-tag{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--blush-deep);background:var(--blush);padding:0.25rem 0.6rem;display:inline-block;margin-bottom:0.75rem;}
+    .work-title{font-family:var(--serif);font-size:1.3rem;margin-bottom:0.5rem;}
+    .work-desc{font-size:0.875rem;color:var(--charcoal-mid);line-height:1.7;margin-bottom:1.25rem;}
+    .work-result{font-size:0.8rem;color:var(--charcoal-light);border-top:1px solid var(--sand-mid);padding-top:1rem;font-style:italic;}
+    .work-result strong{color:var(--blush-deep);font-style:normal;}
+    .work-sites{margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:0.5rem;}
+    .work-site-link{font-size:0.7rem;letter-spacing:0.08em;color:var(--blush-deep);text-decoration:none;border-bottom:1px solid var(--blush-dark);padding-bottom:1px;}
+    .work-site-link:hover{opacity:0.7;}
+    #experience{background:var(--white);}
+    .job-list{display:flex;flex-direction:column;}
+    .job{display:grid;grid-template-columns:200px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--sand-mid);}
+    .job:first-child{border-top:1px solid var(--sand-mid);}
+    .job-period{font-size:0.75rem;color:var(--charcoal-light);margin-bottom:0.25rem;}
+    .job-co{font-family:var(--serif);font-size:1rem;}
+    .job-loc{font-size:0.75rem;color:var(--charcoal-light);}
+    .job-role{font-size:1rem;font-weight:500;margin-bottom:0.5rem;}
+    .job-desc{font-size:0.875rem;color:var(--charcoal-mid);line-height:1.75;}
+    .job-hl{display:block;margin-top:0.75rem;font-size:0.8rem;color:var(--blush-deep);border-left:2px solid var(--blush-dark);padding-left:0.75rem;font-style:italic;}
+    #toolkit{background:var(--sand);}
+    .tk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .tk-title{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--blush-deep);font-weight:500;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--blush-mid);}
+    .tk-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+    .tk-tag{font-size:0.75rem;color:var(--charcoal-mid);background:var(--white);border:1px solid var(--sand-mid);padding:0.25rem 0.65rem;transition:all 0.2s;}
+    .tk-tag:hover{background:var(--blush);border-color:var(--blush-dark);color:var(--blush-deep);}
+    #about{background:var(--charcoal);color:var(--white);}
+    #about .sec-label{color:var(--blush-dark);}
+    #about .sec-title{color:var(--white);}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .about-text{font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.85;font-weight:300;}
+    .about-text p{margin-bottom:1.25rem;}
+    .about-quote{font-family:var(--serif);font-size:1.8rem;font-weight:300;line-height:1.4;color:var(--white);padding-left:1.5rem;border-left:2px solid var(--blush-dark);font-style:italic;}
+    #contact{background:var(--blush);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .c-line{display:flex;gap:1rem;align-items:center;margin-bottom:1rem;font-size:0.875rem;color:var(--charcoal-mid);}
+    .c-line a{color:var(--blush-deep);text-decoration:none;font-weight:500;}
+    .c-line a:hover{text-decoration:underline;}
+    footer{background:var(--charcoal);color:rgba(255,255,255,0.4);text-align:center;padding:2rem;font-size:0.8rem;}
+    @media(max-width:768px){
+      .hero-inner{grid-template-columns:1fr;}
+      .hero-card{display:none;}
+      .expertise-grid{grid-template-columns:1fr;}
+      .work-grid{grid-template-columns:1fr;}
+      .job{grid-template-columns:1fr;gap:0.5rem;}
+      .tk-grid{grid-template-columns:1fr 1fr;}
+      .about-grid{grid-template-columns:1fr;gap:2rem;}
+      .contact-grid{grid-template-columns:1fr;gap:2rem;}
+      nav{padding:0 1.5rem;}
+      .nav-links{gap:1.25rem;}
+      section{padding:4rem 1.5rem;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Bridgit Lawhead</a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Marketing Project Manager · Atlanta, GA</p>
+      <h1 class="hero-name">Bridgit<br><em>Lawhead</em></h1>
+      <p class="hero-tagline">B2B marketing strategist with 6+ years turning complex campaigns into measurable results — from brand development and website strategy to multi-channel execution.</p>
+      <a href="#work" class="btn-solid">View My Work</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+    <div style="display:flex;justify-content:center;">
+      <div class="hero-card">
+        <p class="hero-card-label">By the numbers</p>
+        <div class="stat-row">
+          <div class="stat-block"><div class="stat-num">6+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat-block"><div class="stat-num">85+</div><div class="stat-label">Client Accounts</div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-block"><div class="stat-num">$8M</div><div class="stat-label">AUM Growth Driven</div></div>
+          <div class="stat-block"><div class="stat-num">5</div><div class="stat-label">Websites Built</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section id="expertise">
+  <div class="container">
+    <p class="sec-label">What I Do</p>
+    <h2 class="sec-title">Core <em>Expertise</em></h2>
+    <p class="sec-intro">From strategic planning to hands-on execution — I bring campaigns, brands, and websites to life across every channel.</p>
+    <div class="expertise-grid">
+      <div class="exp-card"><div class="exp-icon">📋</div><div class="exp-name">Marketing Project Management</div><p class="exp-desc">Coordinating cross-functional teams, managing timelines and KPIs, and keeping multiple high-priority accounts on track simultaneously.</p></div>
+      <div class="exp-card"><div class="exp-icon">🌐</div><div class="exp-name">Website Strategy & Copy</div><p class="exp-desc">Building and optimizing websites from the ground up — UX, SEO, content strategy, and copy that converts for B2B audiences.</p></div>
+      <div class="exp-card"><div class="exp-icon">🎨</div><div class="exp-name">Brand Development & Design</div><p class="exp-desc">Creating cohesive brand systems — lookbooks, pricing guides, sales decks, and collateral using Adobe Creative Suite and Canva.</p></div>
+      <div class="exp-card"><div class="exp-icon">📣</div><div class="exp-name">Multi-Channel Campaigns</div><p class="exp-desc">Digital, social, email, print, TV, and radio — averaging 32 projects per month across construction and professional services clients.</p></div>
+      <div class="exp-card"><div class="exp-icon">✍️</div><div class="exp-name">Content & Copy Strategy</div><p class="exp-desc">Developing content pillar strategies and writing compelling copy for B2B audiences in construction, financial services, and consulting.</p></div>
+      <div class="exp-card"><div class="exp-icon">🤖</div><div class="exp-name">AI-Assisted Marketing</div><p class="exp-desc">Leveraging Claude, ChatGPT, Perplexity, Gemini, and NotebookLM to accelerate strategy, creative ideation, and HubSpot workflows.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="container">
+    <p class="sec-label">Selected Work</p>
+    <h2 class="sec-title">Projects & <em>Campaigns</em></h2>
+    <p class="sec-intro">Brand content, pricing guides, editorial lookbooks, websites, and campaign strategy — built for construction and professional services clients.</p>
+    <div class="work-grid">
+
+      <div class="work-card">
+        <div class="work-img bg-b">
+          <span style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-light);">Caine + Company</span>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Branding · Graphic Design · Website</span>
+          <h3 class="work-title">Caine + Company Brand Suite</h3>
+          <p class="work-desc">Created a full brand content ecosystem for a Scottsdale luxury design-build firm — editorial lookbook, kitchen and casitas pricing guides, project management sales deck, and website strategy. All copy, layout, and design direction produced in-house.</p>
+          <p class="work-result"><strong>Deliverables:</strong> Lookbook, 2 pricing guides, PM strategy deck, website</p>
+          <div class="work-sites">
+            <a href="https://caineandcompany.com" target="_blank" class="work-site-link">caineandcompany.com ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img bg-s">
+          <span style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-light);">RappCM</span>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Graphic Design · Branding · Website</span>
+          <h3 class="work-title">RappCM Editorial Lookbook & Website</h3>
+          <p class="work-desc">Produced an editorial brand lookbook showcasing four luxury Hudson Valley custom home builds — Germantown, Black Barn, Chatham, and Rivertown Lodge. Clean architectural layout with project copy and photography direction. Also built and managed the client website.</p>
+          <p class="work-result"><strong>Deliverables:</strong> 28-page lookbook, website strategy and build</p>
+          <div class="work-sites">
+            <a href="https://rappcm.com" target="_blank" class="work-site-link">rappcm.com ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img bg-m">
+          <span style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-light);">Construction & Trade Websites</span>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Website Strategy · Copy · Build</span>
+          <h3 class="work-title">B2B Website Portfolio</h3>
+          <p class="work-desc">Built and launched websites for construction, electrical, and design-build clients — handling copy strategy, UX structure, SEO, and brand voice for each. Each site tailored to convert B2B leads in competitive local markets.</p>
+          <p class="work-result"><strong>Clients:</strong> Blanco Design Build, JR Electrical, Moin Incorporated</p>
+          <div class="work-sites">
+            <a href="https://blancodesignbuild.com" target="_blank" class="work-site-link">blancodesignbuild.com ↗</a>
+            <a href="https://jrelectrical.com" target="_blank" class="work-site-link">jrelectrical.com ↗</a>
+            <a href="https://moincorporated.com" target="_blank" class="work-site-link">moincorporated.com ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img bg-d">
+          <span style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-light);">Ascent Consulting</span>
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Content Strategy · Production</span>
+          <h3 class="work-title">Construction Hot Takes Podcast</h3>
+          <p class="work-desc">Led end-to-end production coordination for Ascent Consulting's industry podcast — managing scheduling, topic development, guest logistics, and collaboration with a contracted media team and senior leadership.</p>
+          <p class="work-result"><strong>Outcome:</strong> Consistent publishing cadence establishing Ascent as a construction industry thought leader.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <p class="sec-label">Career</p>
+    <h2 class="sec-title">Work <em>Experience</em></h2>
+    <p class="sec-intro">6+ years of B2B marketing across construction, financial services, and professional services.</p>
+    <div class="job-list">
+      <div class="job">
+        <div>
+          <p class="job-period">Jan 2024 – Present</p>
+          <p class="job-co">Ascent Consulting</p>
+          <p class="job-loc">Smyrna, GA</p>
+        </div>
+        <div>
+          <p class="job-role">Marketing Project Manager</p>
+          <p class="job-desc">Lead marketing strategy and project execution for multiple construction and consulting clients. Manage concurrent accounts, coordinate cross-functional teams, direct creative development, and write brand-aligned copy. Leverage Claude, ChatGPT, Perplexity, Gemini, and NotebookLM to accelerate strategy and HubSpot workflows.</p>
+          <span class="job-hl">Led "Construction Hot Takes" podcast — scheduling, topic development, and media team coordination.</span>
+        </div>
+      </div>
+      <div class="job">
+        <div>
+          <p class="job-period">Jan 2022 – Aug 2023</p>
+          <p class="job-co">Impact Partnership</p>
+          <p class="job-loc">Kennesaw, GA</p>
+        </div>
+        <div>
+          <p class="job-role">Marketing Strategist</p>
+          <p class="job-desc">Led marketing strategies for 85+ client accounts across TV, radio, digital, social, websites, and events. Primary liaison between clients and in-house agency teams — averaging 32 projects per month. Planned and executed 60+ events annually for financial advisor clients.</p>
+          <span class="job-hl">Drove $8M combined AUM growth for three clients. Absorbed additional book of business saving the company ~$130K annually.</span>
+        </div>
+      </div>
+      <div class="job">
+        <div>
+          <p class="job-period">Oct 2020 – Jan 2022</p>
+          <p class="job-co">IOU Financial</p>
+          <p class="job-loc">Kennesaw, GA</p>
+        </div>
+        <div>
+          <p class="job-role">Marketing Specialist</p>
+          <p class="job-desc">Managed email campaigns via MailChimp and Pardot. Optimized website UX, content, and SEO in WordPress. Collaborated with Sales, Business Development, and Investor Relations on marketing materials and executive presentations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit">
+  <div class="container">
+    <p class="sec-label">Tools & Skills</p>
+    <h2 class="sec-title">Technical <em>Toolkit</em></h2>
+    <p class="sec-intro">The platforms, tools, and disciplines I work with every day.</p>
+    <div class="tk-grid">
+      <div><p class="tk-title">Marketing Platforms</p><div class="tk-tags"><span class="tk-tag">HubSpot</span><span class="tk-tag">Salesforce</span><span class="tk-tag">MailChimp</span><span class="tk-tag">Pardot</span><span class="tk-tag">Sugar Market</span><span class="tk-tag">Google Analytics</span><span class="tk-tag">Google Ads</span></div></div>
+      <div><p class="tk-title">Design & Web</p><div class="tk-tags"><span class="tk-tag">Adobe Creative Suite</span><span class="tk-tag">Canva</span><span class="tk-tag">WordPress</span><span class="tk-tag">SEO</span><span class="tk-tag">UX Strategy</span></div></div>
+      <div><p class="tk-title">Social & Content</p><div class="tk-tags"><span class="tk-tag">Hootsuite</span><span class="tk-tag">Later</span><span class="tk-tag">Tailwind</span><span class="tk-tag">Meta Business Suite</span><span class="tk-tag">Content Pillars</span></div></div>
+      <div><p class="tk-title">Project Management</p><div class="tk-tags"><span class="tk-tag">Workfront</span><span class="tk-tag">MS Teams Planner</span><span class="tk-tag">SharePoint</span><span class="tk-tag">Microsoft Office</span></div></div>
+      <div><p class="tk-title">AI Tools</p><div class="tk-tags"><span class="tk-tag">Claude</span><span class="tk-tag">ChatGPT</span><span class="tk-tag">Perplexity</span><span class="tk-tag">Gemini</span><span class="tk-tag">NotebookLM</span></div></div>
+      <div><p class="tk-title">Strategy</p><div class="tk-tags"><span class="tk-tag">B2B Strategy</span><span class="tk-tag">Brand Development</span><span class="tk-tag">Copywriting</span><span class="tk-tag">Event Management</span><span class="tk-tag">Pillar-Based Marketing</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="sec-label">About Me</p>
+        <h2 class="sec-title">The person<br>behind the <em>strategy</em></h2>
+        <div class="about-text">
+          <p>I'm a results-driven Marketing Project Manager based in Atlanta, GA, with 6+ years of B2B experience in construction and professional services. I thrive at the intersection of strategy and execution.</p>
+          <p>My background spans brand development, website strategy and builds, multi-channel campaign management, graphic design, and event production — managing portfolios of 85+ client accounts and consistently finding ways to do more with less.</p>
+          <p>BFA in Speech Communication, Public Relations — Valdosta State University.</p>
+        </div>
+      </div>
+      <div>
+        <blockquote class="about-quote">"Results-driven means nothing without relationships. I build both."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <p class="sec-label">Let's Connect</p>
+    <h2 class="sec-title">Get in <em>Touch</em></h2>
+    <div class="contact-grid">
+      <div>
+        <p class="sec-intro" style="margin-bottom:1.5rem;">Open to new opportunities in marketing project management, brand strategy, and multi-channel campaign work.</p>
+        <div class="c-line"><span>📧</span><a href="mailto:bjlawhead@gmail.com">bjlawhead@gmail.com</a></div>
+        <div class="c-line"><span>📍</span><span>Atlanta, GA</span></div>
+        <div class="c-line"><span>💼</span><a href="https://linkedin.com/in/bridgitlawhead" target="_blank">linkedin.com/in/bridgitlawhead</a></div>
+        <div class="c-line"><span>📱</span><a href="tel:+14049932750">404-993-2750</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 Bridgit Lawhead · Atlanta, GA</p></footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.work-card,.exp-card,.job').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(20px)';
+    el.style.transition='opacity 0.5s ease,transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
